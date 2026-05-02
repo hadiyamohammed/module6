@@ -56,3 +56,10 @@ plt.title("Confusion Matrix")
 
 plt.savefig("confusion_matrix.png")  # saves image
 plt.show()
+
+importance = pd.Series(model.coef_[0], index=X.columns)
+importance = importance.sort_values()
+
+importance.tail(10).plot(kind="barh")
+plt.title("Top Features Predicting Student Success")
+plt.show()
